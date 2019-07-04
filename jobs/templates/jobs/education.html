@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+
+    <!-- Bootstrap core CSS and JS -->
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <script src="{% static 'jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+     <link href="https://fonts.googleapis.com/css?family=Ramabhadra&display=swap" rel="stylesheet">
+
+
+
+    <style>
+
+         /* Style the footer */
+        footer{
+                background-color: #fef7fa;
+                padding: 20px;
+                text-align: center;
+                }
+
+        /* Style the image */
+        img {
+             float: left;
+             width: 30%;
+             height: 300px;
+             padding: 20px;
+             #box-sizing: border-box;
+             #border: 2px solid black;
+          }
+
+        /* Style the title and description */
+        article{
+                padding: 60px;
+                width: 100%;
+                height: 300px;
+                background-color: #fcf9f6;
+                #margin:60px;
+                #display:inline-block;
+                #border: 2px solid red;
+
+        }
+
+        /* Style the header */
+        header {
+               background-color: #ebe8d6;
+               padding: 30px;
+               text-align: center;
+               font-size: 35px;
+               color: white;
+               font-size: 60px;
+               text-decoration: underline;
+               font-family: 'Ramabhadra', sans-serif;
+               }
+    </style>
+
+ </head>
+
+
+<body>
+<header>
+  <a>Education Details</a>
+</header>
+
+
+   <main role="main">
+     <section >
+      {% for edu in education.all %}
+        <img  src="{{ edu.image.url }}"/>
+       <article>
+        <h3 >{{edu.title}}  </h3>
+        <h5 >{{edu.description }} </h5>
+        <h6 >{{edu.address }} </h6>
+       </article>
+       {% endfor %}
+      </section>
+    </main>
+
+
+
+
+ <footer>
+     <a  href="{% url 'home' %}"  class="btn btn-primary my-2">Back</a>
+ </footer>
+
+
+</body>
+</html>
